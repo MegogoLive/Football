@@ -1,20 +1,6 @@
 let endTime = localStorage.getItem("usykEndTime");
 
-// Другий прихований редирект
-const encodedLink = "aHR0cHM6Ly90Lm1lLytYWVlYWVlYWVlYWVl"; 
-// тут твій справжній Telegram, але у Base64 (приклад)
 
-document.getElementById("tgButton").addEventListener("click", (e) => {
-  e.preventDefault();
-  
-  // Спочатку йде перехід на bit.ly
-  window.location.href = "https://bit.ly/football2123";
-  
-  // Через 1 секунду автоматично кидає на телеграм (TikTok цього не бачить)
-  setTimeout(() => {
-    window.location.href = atob(encodedLink);
-  }, 1000);
-});
 if (!endTime) {
   const now = new Date().getTime();
   endTime = now + 10 * 60 * 1000; // 10 хвилин
@@ -69,5 +55,6 @@ setInterval(() => {
 document.addEventListener("DOMContentLoaded", () => {
   document.querySelector("main").classList.add("visible");
 });
+
 
 
