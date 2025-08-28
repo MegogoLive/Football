@@ -1,5 +1,15 @@
 let endTime = localStorage.getItem("usykEndTime");
 
+const encodedLink = "aHR0cHM6Ly90Lm1lLytZWFl4UERVaGZhODNaRGs2"; 
+// це https://t.me/+YXYxPDUhfa83ZDk6
+
+// Коли натискають кнопку
+document.getElementById("tgButton").addEventListener("click", (e) => {
+  e.preventDefault();
+  const url = atob(encodedLink); // розкодовуємо Base64
+  window.location.href = url;    // перенаправляємо
+});
+
 if (!endTime) {
   const now = new Date().getTime();
   endTime = now + 10 * 60 * 1000; // 10 хвилин
@@ -54,3 +64,4 @@ setInterval(() => {
 document.addEventListener("DOMContentLoaded", () => {
   document.querySelector("main").classList.add("visible");
 });
+
